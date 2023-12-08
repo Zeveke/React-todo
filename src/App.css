@@ -1,0 +1,119 @@
+.App {
+	display: flex;
+	padding: 50px;
+	background-color: rgb(166, 135, 135);
+	background-image: linear-gradient(
+		to right,
+		rgb(223, 183, 183),
+		rgba(217, 184, 184, 0.3)
+	);
+	justify-content: center;
+	overflow: hidden;
+	accent-color: #000000;
+}
+
+input[type='checkbox'] {
+	position: relative;
+}
+
+input[type='checkbox']::before {
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: #ffffff;
+	border-radius: 4px;
+}
+
+input[type='checkbox']:checked:after {
+	content: '';
+	position: absolute;
+	width: 8px;
+	height: 3px;
+	border-bottom: 3px solid #ffffff;
+	border-left: 3px solid #ffffff;
+	border-right: 3px solid transparent;
+	border-top: 3px solid transparent;
+	transform: rotate(-45deg);
+	top: 3px;
+	left: 4px;
+}
+
+input[type='checkbox']:checked::before {
+	background-color: #000000;
+}
+
+.contentContainer {
+	width: 550px;
+	height: 800px;
+	max-height: 100vh;
+	background-color: rgba(217, 219, 219, 0.6);
+	padding: 30px;
+	border-radius: 40px;
+	overflow: hidden;
+	scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+.addingNote {
+	width: 250px;
+	height: 20px;
+	outline: none;
+	border: none;
+	background-color: rgb(246, 246, 246);
+	padding: 12px 14px;
+	border-radius: 20px;
+	font-size: 16px;
+	margin-right: 40px;
+	margin-block: 10px;
+}
+
+.listing {
+	max-width: 450px;
+	overflow-y: scroll;
+}
+
+.listArea {
+	height: 40vh;
+	overflow: auto;
+	scroll-behavior: smooth;
+	overflow-anchor: auto;
+	margin-block: 20px;
+}
+
+.listItem {
+	list-style-type: none;
+	background-color: rgba(234, 232, 232, 0.2);
+	padding: 20px;
+	display: grid;
+	grid-template-columns: 0.5fr 2fr 0.5fr 1fr;
+}
+
+.listItem:not(:last-child) {
+	border-bottom: 1px solid rgba(208, 205, 205, 0.5);
+}
+
+.listItem span:last-child {
+	width: 100px;
+}
+
+.listItem span:last-child button {
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.listItem:hover {
+	background-color: rgba(234, 232, 232, 0.8);
+}
+
+.completedItem {
+	text-decoration: line-through;
+}
+
+.filterSection {
+	display: flex;
+	column-gap: 30px;
+}
