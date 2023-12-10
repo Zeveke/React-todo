@@ -1,8 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { ref, onValue } from 'firebase/database';
+import { db } from '../firebase';
 
 export const useRequestCompletedItem = (idSelected) => {
-	const [list, setList] = useState([]);
+	const [list, setList] = useState({});
 
+	useEffect(() => {
+		const todosDbRef = ref(db, 'todos');
+
+		onValue(todosDbRef, (snapshot) => {
+			const completedList = snapshot.val();
+			setList(completedList);
+		});
+	});
 	let completedList = list.map((item) => {
 		if (item.id === idSelected) {
 			if (item.status === 'active') {
@@ -15,7 +25,6 @@ export const useRequestCompletedItem = (idSelected) => {
 			return item;
 		}
 	});
-	setList(completedList);
 
 	return {
 		setList,

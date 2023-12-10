@@ -1,10 +1,16 @@
 import { useState } from 'react';
+import { ref, filter } from 'firebase/database';
+import { db } from '../firebase';
 
 export const useRequestAdvancedFilter = (category) => {
 	const [filterList, setFilterList] = useState([]);
 	const [searchTerm, setSearchTerm] = useState('');
 	const [checkedItems, setCheckedItems] = useState([]);
 	const [list, setList] = useState([]);
+
+	const todosDbRef = ref(db, 'todos');
+
+	filter(todosDbRef, {});
 
 	setSearchTerm('');
 	category = category.toLowerCase();
