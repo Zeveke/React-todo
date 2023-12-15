@@ -1,0 +1,20 @@
+.container {
+	width: 850px;
+	margin: 150px auto;
+	padding: 4px;
+	border: 1px solid #394443;
+	background-color: #8dabaa;
+}
+
+.header {
+	font-size: 25px;
+	font-family: 'Franklin Gothic Medium' cursive;
+	margin: 5px;
+	text-align: center;
+	color: rgb(237, 243, 243);
+}
+
+.settings {
+	display: flex;
+	justify-content: space-between;
+}
