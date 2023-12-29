@@ -1,17 +1,20 @@
-import styles from './App.module.css';
-import { useEffect, useState } from 'react';
-import { ToDosListOutput } from './out-todo-list/list-output';
-import { AddToDos } from './hooks/add-todos/add-todos';
-import { ToDosSearch } from './hooks/todos-search/todos-search';
-import { ToDosSort } from './hooks/todos-sort/todos-sort';
+import styles from './App.module.css'; //
+import { useEffect, useState } from 'react'; //
+import { Routes, Route } from 'react-router-dom'; //
+import { ToDosListOutput } from './out-todo-list/list-output'; //
+import { AddToDos } from './hooks/use-add-todos/use-add-todos'; //
+import { ToDosSearch } from './hooks/use-todos-search/use-todos-search'; //
+import { ToDosSort } from './hooks/use-todos-sort/use-todos-sort'; //
 
 export const App = () => {
-	const [toDos, setToDos] = useState([]);
+	//
+	const [toDos, setToDos] = useState([]); //
 	const [changeToDosMarker, setChangeToDosMarker] = useState(false);
-	const [fieldSearchValue, setFieldSearchValue] = useState('');
-	const [isSortChecked, setIsSortChecked] = useState(false);
+	const [fieldSearchValue, setFieldSearchValue] = useState(''); //
+	const [isSortChecked, setIsSortChecked] = useState(false); //
 
 	useEffect(() => {
+		//
 		const acceptCustomQuerySearchAndSort = (fieldSearchValue, isSortChecked) => {
 			let request = '';
 
